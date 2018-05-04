@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import edgol from './edmundo.jpg';
+import edgif from './edgif.gif';
 import styled, { css } from 'styled-components';
 import Scoreboard from './Components/Scoreboard/Scoreboard';
 
@@ -129,6 +130,9 @@ class App extends Component {
               <Button onClick={this.handleGoal} disabled={canScore} data-team='away'>Away</Button>
             </Content>
           </Section>
+          {score.home === 3 &&
+            <Edgif src={edgif}/>
+          }
         </Controls>
       </Main>
     );
@@ -196,6 +200,12 @@ const Button = styled.button`
     opacity: .6;
     cursor: initial;
   `}
+`;
+
+const Edgif = styled.img`
+  width: 300px;
+  height: auto;
+  margin-top: 10px;
 `;
 
 export default App;
