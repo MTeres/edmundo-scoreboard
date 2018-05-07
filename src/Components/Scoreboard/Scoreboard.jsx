@@ -12,16 +12,6 @@ class Scoreboard extends Component {
       started: PropTypes.bool.isRequired,
       seconds: PropTypes.number.isRequired,
     }).isRequired,
-    teamHome: PropTypes.shape({
-      abbreviation: PropTypes.string.isRequired,
-      color: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-    }).isRequired,
-    teamAway: PropTypes.shape({
-      abbreviation: PropTypes.string.isRequired,
-      color: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-    }).isRequired,
     score: PropTypes.shape({
       home: PropTypes.number.isRequired,
       away: PropTypes.number.isRequired,
@@ -49,8 +39,8 @@ class Scoreboard extends Component {
               {homeScoring
                 ?
                 (<Score>
-                  <ScoreSpan in>{home + 1}</ScoreSpan>
-                  <ScoreSpan out>{home}</ScoreSpan>
+                  <ScoreSpan inAnimation>{home + 1}</ScoreSpan>
+                  <ScoreSpan outAnimation>{home}</ScoreSpan>
                 </Score>)
                 : (<ScoreSpan>{home}</ScoreSpan>)
               }
@@ -61,8 +51,8 @@ class Scoreboard extends Component {
               {awayScoring
                 ?
                 (<Score>
-                  <ScoreSpan in>{away + 1}</ScoreSpan>
-                  <ScoreSpan out>{away}</ScoreSpan>
+                  <ScoreSpan inAnimation>{away + 1}</ScoreSpan>
+                  <ScoreSpan outAnimation>{away}</ScoreSpan>
                 </Score>)
                 : (<ScoreSpan>{away}</ScoreSpan>)
               }
@@ -134,7 +124,7 @@ const ScoreSpan = styled.span`
   font-size: 16px;
   font-weight: 700;
   ${p => (p.in || p.out) && css`
-    animation: ${p.in ? numberInAnimation : numberOutAnimation} 1s 0s 1;
+    animation: ${p.inAnimation ? numberInAnimation : numberOutAnimation} 1s 0s 1;
   `}
 `;
 
