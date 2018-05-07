@@ -39,8 +39,8 @@ class Scoreboard extends Component {
               {homeScoring
                 ?
                 (<Score>
-                  <ScoreSpan in>{home + 1}</ScoreSpan>
-                  <ScoreSpan out>{home}</ScoreSpan>
+                  <ScoreSpan inAnimation>{home + 1}</ScoreSpan>
+                  <ScoreSpan outAnimation>{home}</ScoreSpan>
                 </Score>)
                 : (<ScoreSpan>{home}</ScoreSpan>)
               }
@@ -51,8 +51,8 @@ class Scoreboard extends Component {
               {awayScoring
                 ?
                 (<Score>
-                  <ScoreSpan in>{away + 1}</ScoreSpan>
-                  <ScoreSpan out>{away}</ScoreSpan>
+                  <ScoreSpan inAnimation>{away + 1}</ScoreSpan>
+                  <ScoreSpan outAnimation>{away}</ScoreSpan>
                 </Score>)
                 : (<ScoreSpan>{away}</ScoreSpan>)
               }
@@ -123,8 +123,8 @@ const ScoreSpan = styled.span`
   color: #484a4c;
   font-size: 16px;
   font-weight: 700;
-  ${p => (p.in || p.out) && css`
-    animation: ${p.in ? numberInAnimation : numberOutAnimation} 1s 0s 1;
+  ${p => (p.inAnimation || p.outAnimation) && css`
+    animation: ${p.inAnimation ? numberInAnimation : numberOutAnimation} 1s 0s 1;
   `}
 `;
 
