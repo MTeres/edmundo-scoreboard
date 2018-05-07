@@ -146,6 +146,9 @@ const Main = styled.div`
   justify-content: space-around;
   min-height: 100vh;
   padding: 0 20px;
+  @media(max-width: 1300px) {
+    flex-direction: column;
+  } 
 `;
 
 const PlayerScreen = styled.div`
@@ -153,15 +156,23 @@ const PlayerScreen = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 800px;
-  min-width: 850px;
+  height: 800px;
+  width: 850px;
   position: relative;
+ 
+  @media(max-width: 1300px) {
+    width: 100%;
+  }
 `;
 
 const Controls = styled.div`
   background-color: #121214;
   width: 300px;
   height: 400px;
+  
+  @media(max-width: 1300px) {
+    margin-top: 20px;
+  } 
 `;
 
 const Section = styled.div`
